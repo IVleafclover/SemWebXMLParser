@@ -16,14 +16,32 @@ import org.w3c.dom.NodeList;
 
 import tools.LetterClearer;
 
+/**
+ * @author Christian
+ *
+ */
 public class XMLApartmentParser {
 
+	/**
+	 * Der Dateiname der Wohnungsimportdatei
+	 */
 	private String filename;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param filename
+	 *            Dateiname Import
+	 */
 	public XMLApartmentParser(String filename) {
 		this.filename = filename;
 	}
 
+	/**
+	 * Liest XML-Datei der Wohnungen ein
+	 * 
+	 * @return Liste der Wohnungen
+	 */
 	List<Apartment> parse() {
 		List<Apartment> apartments = new ArrayList<Apartment>();
 		try {

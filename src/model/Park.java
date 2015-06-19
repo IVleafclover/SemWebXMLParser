@@ -1,16 +1,44 @@
 package model;
 
+/**
+ * @author Christian
+ *
+ */
 public class Park {
 
+	/**
+	 * ID
+	 */
 	private int id;
+
+	/**
+	 * Latitude
+	 */
 	private double latitude;
+
+	/**
+	 * Longitude
+	 */
 	private double longitude;
+
+	/**
+	 * Zaehlvariable fuer die iD
+	 */
 	private static int index = 0;
 
+	/**
+	 * Constructor
+	 */
 	public Park() {
 		this.id = ++index;
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param latitude
+	 * @param longitude
+	 */
 	public Park(double latitude, double longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;

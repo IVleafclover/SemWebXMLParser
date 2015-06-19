@@ -6,11 +6,28 @@ import java.util.List;
 
 import model.Apartment;
 
+/**
+ * @author Christian
+ *
+ */
 public class ApartmentFileWriter {
 
+	/**
+	 * Liste der Wohnungen
+	 */
 	private List<Apartment> apartments;
+
+	/**
+	 * Der Writer
+	 */
 	private PrintWriter writer;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param apartments
+	 * @param filename
+	 */
 	public ApartmentFileWriter(List<Apartment> apartments, String filename) {
 		this.apartments = apartments;
 		try {
@@ -20,16 +37,22 @@ public class ApartmentFileWriter {
 		}
 	}
 
+	/**
+	 * Konvertiert jede Wohnung der Liste in das RDF-Schema
+	 */
 	public void write() {
 		for (Apartment apartment : apartments) {
 			writer.println("<!-- http://www.htwk-leipzig.de/christian/ApartmentSearch#"
-					+ Integer.toString(apartment.getId()) + "_" + apartment.getTitle() + " -->");
+					+ Integer.toString(apartment.getId())
+					+ "_"
+					+ apartment.getTitle() + " -->");
 			writer.println("");
 			writer.println("<owl:NamedIndividual rdf:about=\"&ApartmentSearch;"
-					+ Integer.toString(apartment.getId()) + "_" + apartment.getTitle() + "\">");
+					+ Integer.toString(apartment.getId()) + "_"
+					+ apartment.getTitle() + "\">");
 			writer.println("<rdf:type rdf:resource=\"&ApartmentSearch;Apartment\"/>");
-			writer.println("<id rdf:datatype=\"&xsd;int\">"
-					+ apartment.getId() + "</id>");
+			writer.println("<id rdf:datatype=\"&xsd;int\">" + apartment.getId()
+					+ "</id>");
 			writer.println("<title rdf:datatype=\"&xsd;string\">"
 					+ apartment.getTitle() + "</title>");
 			writer.println("<longitude rdf:datatype=\"&xsd;double\">"

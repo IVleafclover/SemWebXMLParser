@@ -16,14 +16,32 @@ import org.w3c.dom.NodeList;
 
 import tools.LetterClearer;
 
+/**
+ * @author Christian
+ *
+ */
 public class XMLStationParser {
 
+	/**
+	 * Dateiname der Haltestellenimportdatei
+	 */
 	private String filename;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param filename
+	 *            Dateiname Import
+	 */
 	public XMLStationParser(String filename) {
 		this.filename = filename;
 	}
 
+	/**
+	 * liest Haltestellen der XML-Datei ein
+	 * 
+	 * @return Liste der Haltestellen
+	 */
 	List<Station> parse() {
 		List<Station> stations = new ArrayList<Station>();
 		try {
@@ -44,13 +62,16 @@ public class XMLStationParser {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
 					Element eElement = (Element) nNode;
-					
+
 					Station station = new Station();
-					
-					for (int i = 0; i < eElement.getElementsByTagName("tag").getLength(); i++) {
-						Element node = (Element) eElement.getElementsByTagName("tag").item(i);
-						if(node.getAttribute("k").equals("name")) {
-							station.setTitle(LetterClearer.clearLetters(node.getAttribute("v")));
+
+					for (int i = 0; i < eElement.getElementsByTagName("tag")
+							.getLength(); i++) {
+						Element node = (Element) eElement.getElementsByTagName(
+								"tag").item(i);
+						if (node.getAttribute("k").equals("name")) {
+							station.setTitle(LetterClearer.clearLetters(node
+									.getAttribute("v")));
 						}
 					}
 

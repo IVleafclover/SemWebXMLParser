@@ -1,23 +1,86 @@
 package model;
 
+/**
+ * @author Christian
+ *
+ */
 public class Apartment {
 
+	/**
+	 * ID
+	 */
 	private int id;
+
+	/**
+	 * Titel der Wohnung
+	 */
 	private String title;
+
+	/**
+	 * Stasse
+	 */
 	private String street;
+
+	/**
+	 * Hausnummer
+	 */
 	private String houseNumber;
+
+	/**
+	 * Latitude
+	 */
 	private double latitude;
+
+	/**
+	 * Longitude
+	 */
 	private double longitude;
+
+	/**
+	 * Kaltmiete
+	 */
 	private float rentWithoutHeating;
+
+	/**
+	 * Warmmiete
+	 */
 	private float rentWithHeating;
+
+	/**
+	 * Flaeche
+	 */
 	private float size;
+
+	/**
+	 * Anzahl der Raeume
+	 */
 	private int numberOfRooms;
+
+	/**
+	 * Zaehlvariable fuer die iD
+	 */
 	private static int index = 0;
 
+	/**
+	 * Construvtor
+	 */
 	public Apartment() {
 		this.id = ++index;
 	}
 
+	/**
+	 * COnstructor
+	 * 
+	 * @param title
+	 * @param street
+	 * @param houseNumber
+	 * @param latitude
+	 * @param longitude
+	 * @param rentWithoutHeating
+	 * @param rentWithHeating
+	 * @param size
+	 * @param numberOfRooms
+	 */
 	public Apartment(String title, String street, String houseNumber,
 			double latitude, double longitude, float rentWithoutHeating,
 			float rentWithHeating, float size, int numberOfRooms) {

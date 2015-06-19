@@ -14,14 +14,32 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * @author Christian
+ *
+ */
 public class XMLParkParser {
 
+	/**
+	 * Dateiname der Parkimportdatei
+	 */
 	private String filename;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param filename
+	 *            Dateiname Import
+	 */
 	public XMLParkParser(String filename) {
 		this.filename = filename;
 	}
 
+	/**
+	 * liest Parks aus XML-Datei ein
+	 * 
+	 * @return Liste der Parks
+	 */
 	List<Park> parse() {
 		List<Park> parks = new ArrayList<Park>();
 		try {
@@ -42,9 +60,9 @@ public class XMLParkParser {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
 					Element eElement = (Element) nNode;
-					
+
 					Park Park = new Park();
-					
+
 					Park.setLatitude(Double.parseDouble(eElement
 							.getAttribute("lat")));
 					Park.setLongitude(Double.parseDouble(eElement
@@ -58,5 +76,5 @@ public class XMLParkParser {
 		}
 		return parks;
 	}
-	
+
 }

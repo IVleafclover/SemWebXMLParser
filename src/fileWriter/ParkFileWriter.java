@@ -6,13 +6,38 @@ import java.util.List;
 
 import model.Park;
 
+/**
+ * @author Christian
+ *
+ */
 public class ParkFileWriter {
 
+	/**
+	 * Liste der Parks
+	 */
 	private List<Park> parks;
+
+	/**
+	 * Der Writer
+	 */
 	private PrintWriter writer;
+
+	/**
+	 * Standardparkname
+	 */
 	private final String PARKNAME = "park";
+
+	/**
+	 * Zaehler fuer die iD
+	 */
 	private static int counter = 0;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param parks
+	 * @param filename
+	 */
 	public ParkFileWriter(List<Park> parks, String filename) {
 		this.parks = parks;
 		try {
@@ -22,6 +47,9 @@ public class ParkFileWriter {
 		}
 	}
 
+	/**
+	 * Konvertiert alle Parks in das RDF-Schema
+	 */
 	public void write() {
 		for (Park park : parks) {
 			if (counter == 0) {

@@ -1,17 +1,50 @@
 package model;
 
+/**
+ * @author Christian
+ *
+ */
 public class Station {
 
+	/**
+	 * ID
+	 */
 	private int id;
+
+	/**
+	 * Titel
+	 */
 	private String title;
+
+	/**
+	 * Latitude
+	 */
 	private double latitude;
+
+	/**
+	 * Longitude
+	 */
 	private double longitude;
+
+	/**
+	 * Yaehlvariable fuer die ID
+	 */
 	private static int index = 0;
 
+	/**
+	 * Constructor
+	 */
 	public Station() {
 		this.id = ++index;
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param title
+	 * @param latitude
+	 * @param longitude
+	 */
 	public Station(String title, double latitude, double longitude) {
 		this.title = title;
 		this.latitude = latitude;
